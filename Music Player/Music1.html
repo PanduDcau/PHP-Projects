@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	
+<title>Music Player</title>
+	
+	<link rel="stylesheet" type="text/css" href="MusicBox.css">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0/css/all.min.css" integrity="sha512-QfDd74mlg8afgSqm3Vq2Q65e9b3xMhJB4GZ9OcHDVy1hZ6pqBJPWWnMsKDXM7NINoKqJANNGBuVRIpIJ5dogfA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+	
+</head>
+
+<body>
+	<div class="main"> 
+<!--song image-->
+<!--	<img id="track_image">-->
+		
+	<div class="volume">
+	</div>
+	
+	
+		<p id="logo"><i class="fa fa-music" aria-hidden="true"></i>Music</p>
+	
+<!--left part-->
+			<div class="left">
+		
+		
+	
+			
+					</div>
+	
+		
+		<div class="container">
+			<div class="box">
+				<div class="imgBx">
+		<img id="track_image">
+		</div>
+				<div class="content">
+				<div>
+					<h2 id="title">Image Title</h2>
+					<p id="artist">Hey Guys</p>
+					</div>
+				</div>
+		</div>
+		</div>	
+		
+<!--		right panel-->
+		<div class="right">
+		<div class="show_song_no">
+		<p id="present">1</p>
+			<p>/</p>
+			<p id="total">5</p>
+			</div>
+		
+<!--			song title-->
+			<p id="title2">title.mp3</p>
+			<p id="Genre">Genre</p>
+			
+			
+<!--	Middle part-->
+			<div class="middle">
+			<button onClick="previous_song()" id="pre"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
+				<button onClick="justplay()" id="play"><i class="fa fa-play" aria-hidden="true"></i></button>
+				<button onclick="next_song()" id="next"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
+			</div>
+		
+		
+<!--song duration-->
+		<div class="duration">
+	<input type="range" min="0" max="100" value="0" id="duration_slider" onChange="change_duration()">
+		
+		</div>
+		<button id="auto" onclick="autoplay_switch()">Autoplay<i class="fa fa-headphones" aria-hidden="true"></i></button>
+			
+			<div class="volume">
+		<p id="volume_show">90</p>
+		
+		<i class="fa fa-volume-up" aria-hidden="true" id="volume_icon" onClick="mute_sound()"></i>
+		
+		<input type="range" min="0" max="100" value="90" onChange="volume_change()" id="volume">
+		</div>
+			
+			
+		</div>
+	
+
+	</div>
+	
+<!--javasript-->
+	<script src="script.js"></script>
+	
+	
+</body>
+</html>
