@@ -1,0 +1,311 @@
+-- MySQL dump 10.13  Distrib 5.7.14, for Win64 (x86_64)
+--
+-- Host: localhost    Database: scs1203
+-- ------------------------------------------------------
+-- Server version	5.0.96-community-nt
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Not dumping tablespaces as no INFORMATION_SCHEMA.FILES table on this server
+--
+
+--
+-- Current Database: `scs1203_new`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `scs1203_assignment` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE `scs1203_assignment`;
+
+--
+-- Table structure for table `booking`
+--
+
+DROP TABLE IF EXISTS `booking`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `booking` (
+  `Hotel_No` varchar(6) character set latin1 collate latin1_bin NOT NULL default '',
+  `Guest_No` varchar(6) character set latin1 collate latin1_bin NOT NULL default '',
+  `Date_From` date NOT NULL default '1900-01-01',
+  `Date_To` date default '1900-01-01',
+  `Room_No` varchar(7) NOT NULL default '',
+  PRIMARY KEY  (`Hotel_No`,`Guest_No`,`Date_From`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `booking`
+--
+
+LOCK TABLES `booking` WRITE;
+/*!40000 ALTER TABLE `booking` DISABLE KEYS */;
+INSERT INTO `booking` VALUES ('00006','00001','2018-05-29','2018-06-01','102'),
+							 ('00006','00002','2018-05-30','2018-06-02','202'),
+							 ('00007','00003','2018-05-28','2018-05-31','102'),
+							 ('00007','00004','2018-05-25','2018-05-31','103');
+/*!40000 ALTER TABLE `booking` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `guest`
+--
+
+DROP TABLE IF EXISTS `guest`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `guest` (
+  `Guest_No` varchar(6) character set latin1 collate latin1_bin NOT NULL default '',
+  `Name` varchar(50) NOT NULL default '',
+  `Phone_No` varchar(15) default NULL,
+  `Address` varchar(75) default NULL,
+  PRIMARY KEY  (`Guest_No`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `guest`
+--
+
+LOCK TABLES `guest` WRITE;
+/*!40000 ALTER TABLE `guest` DISABLE KEYS */;
+INSERT INTO `guest` VALUES ('00001','Athula Dias','0725642346','21-11, Horana Rd, Piliyandala'),('00002','Malik Silva','0112905678','10, Main St. Ragama'),('00003','Ruvan Gamage','0313459876','67-3, Stage ii, New town, Anuradhapura'),('00004','Gihan Perera','0753456754','35, Reid Av. Colombo 7'),('00005','Jeewani Jayaratne','0713456542','345-23, Arawwala Rd, Maharagama'),('00006','S.T. Nanadasara','0773832945','654, New Town, Malabe'),('00007','Kapila Kodikara','0874561243','998, 2nd Street, Rawathawatta, Moratuwa'),('00008','Prasad Siripala','2158954','UCSC, Colombo 00700'),('00009','Hewa Dias','2158989','E301, UCSC, Colombo 00700'),('00010','Ajantha Silva','2158999','UCSC, Colombo 00700');
+/*!40000 ALTER TABLE `guest` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `hotel`
+--
+
+DROP TABLE IF EXISTS `hotel`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `hotel` (
+  `Hotel_No` varchar(6) character set latin1 collate latin1_bin NOT NULL default '',
+  `Name` varchar(50) NOT NULL default '',
+  `Address` varchar(75) default NULL,
+  PRIMARY KEY  (`Hotel_No`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hotel`
+--
+
+LOCK TABLES `hotel` WRITE;
+/*!40000 ALTER TABLE `hotel` DISABLE KEYS */;
+INSERT INTO `hotel` VALUES ('00001','Arika Villa','Puwakattawala road, off dambulla Matale road,Pannampitiya, Dambulla, 21100 '),
+('00002','Sundaras Resort','189 Kandy Road, 21100 Dambulla, Sri Lanka'),
+('00003','Thilanka Resort and Spa','51 Godawalaya Morragollawa, 21100 Dambulla, Sri Lanka'),
+('00004','Rangiri Dambulla Resort','Pohoran Wewa, Kurunegala Road, Dambulla, 21100 Dambulla, Sri Lanka'),
+('00005','Heritance Kandalama','P.O Box 11, Heritance Kandalama, 21100 Sigiriya, Sri Lanka'),
+('00006','Amaya Lake Hotel','Kandalama, Dambulla, 21100 Sigiriya, Sri Lanka'),
+('00007','Anilana Nilaveli','1508 Irakkandi Nilaveli, 31010 Nilaveli, Sri Lanka'),
+('00008','Cinnamon Grand Colombo','77 Galle Road, Kollupitiya, 00100 Colombo, Sri Lanka'),
+('00009','The Kingsbury','No 48 Janadhipathi Mawatha, Fort, 00100 Colombo, Sri Lanka'),
+('00010','Taj Samudra','25, Galle Face Centre Road, 09411 Colombo, Sri Lanka'),
+('00011','Ramada Colombo','30 Sir Mohamed Macan Makar Mawatha, P.O.Box 1202, 00300 Colombo, Sri Lanka');
+/*!40000 ALTER TABLE `hotel` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `room`
+--
+
+DROP TABLE IF EXISTS `room`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `room` (
+  `Hotel_No` varchar(6) character set latin1 collate latin1_bin NOT NULL default '',
+  `Room_No` varchar(7) NOT NULL default '',
+  `Type` varchar(10) NOT NULL default '',
+  `Price` decimal(8,0) default NULL,
+  PRIMARY KEY  (`Hotel_No`,`Room_No`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `room`
+--
+
+LOCK TABLES `room` WRITE;
+/*!40000 ALTER TABLE `room` DISABLE KEYS */;
+INSERT INTO `room` VALUES ('00001','101','Single',6500),
+('00001','102','Single',6500),
+('00001','103','Single',6500),
+('00001','104','Single',6500),
+('00001','105','Single',6500),
+('00001','201','Double',8500),
+('00001','202','Double',8500),
+('00001','203','Double',8500),
+('00001','204','Double',8500),
+('00001','205','Double',8500),
+('00001','301','Family',10000),
+('00001','302','Family',10000),
+('00001','303','Family',10000),
+('00001','304','Family',10000),
+('00001','305','Family',10000),
+('00001','306','Family',10000),
+('00001','307','Family',10000),
+('00002','101','Single',4000),
+('00002','102','Single',4000),
+('00002','103','Single',4000),
+('00002','104','Single',4000),
+('00002','105','Single',4000),
+('00002','201','Double',6000),
+('00002','202','Double',6000),
+('00002','203','Double',6000),
+('00002','204','Double',6000),
+('00002','205','Double',6000),
+('00002','206','Double',6000),
+('00002','207','Double',6000),
+('00002','208','Double',6000),
+('00002','301','Family',7500),
+('00002','302','Family',7500),
+('00002','303','Family',7500),
+('00002','304','Family',7500),
+('00002','305','Family',7500),
+('00003','101','Single',3500),
+('00003','102','Single',3500),
+('00003','103','Single',3500),
+('00003','104','Single',3500),
+('00003','105','Single',3500),
+('00003','201','Family',6500),
+('00003','202','Family',6500),
+('00004','101','Single',4000),
+('00004','102','Single',4000),
+('00004','103','Single',4000),
+('00004','104','Single',4000),
+('00004','105','Single',4000),
+('00004','201','Double',4500),
+('00004','202','Double',4500),
+('00004','203','Double',4500),
+('00004','204','Double',4500),
+('00004','205','Double',4500),
+('00004','206','Double',4500),
+('00005','101','Single',4000),
+('00005','102','Single',4000),
+('00005','103','Single',4000),
+('00005','104','Single',4000),
+('00005','105','Single',4000),
+('00005','201','Double',5000),
+('00005','202','Double',5000),
+('00005','203','Double',5000),
+('00005','204','Double',5000),
+('00005','205','Double',5000),
+('00005','206','Double',5000),
+('00005','207','Double',5000),
+('00005','208','Double',5000),
+('00005','301','Family',8500),
+('00005','302','Family',8500),
+('00006','101','Single',4000),
+('00006','102','Single',4000),
+('00006','103','Single',4000),
+('00006','104','Single',4000),
+('00006','105','Single',4000),
+('00006','201','Double',5000),
+('00006','202','Double',5000),
+('00006','203','Double',5000),
+('00006','204','Double',5000),
+('00006','205','Double',5000),
+('00006','206','Double',5000),
+('00006','207','Double',5000),
+('00006','208','Double',5000),
+('00006','301','Family',6500),
+('00006','302','Family',6500),
+('00006','303','Family',6500),
+('00006','304','Family',6500),
+('00006','305','Family',6500),
+('00006','306','Family',6500),
+('00006','307','Family',6500),
+('00006','308','Family',6500),
+('00007','101','Single',3500),
+('00007','102','Single',3500),
+('00007','103','Single',3500),
+('00007','104','Single',3500),
+('00007','105','Single',3500),
+('00007','106','Single',3500),
+('00007','107','Single',3500),
+('00007','201','Family',6500),
+('00007','202','Family',6500),
+('00007','203','Family',6500),
+('00007','204','Family',6500),
+('00007','205','Family',6500),
+('00007','206','Family',6500),
+('00007','301','Double',8500),
+('00007','302','Double',8500),
+('00007','303','Double',8500),
+('00007','304','Double',8500),
+('00007','305','Double',8500),
+('00008','101','Single',6500),
+('00008','102','Single',6500),
+('00008','103','Single',6500),
+('00008','104','Single',6500),
+('00008','105','Single',6500),
+('00008','201','Double',8500),
+('00008','202','Double',8500),
+('00008','203','Double',8500),
+('00008','204','Double',8500),
+('00008','205','Double',8500),
+('00008','301','Family',10000),
+('00008','302','Family',10000),
+('00008','303','Family',10000),
+('00008','304','Family',10000),
+('00008','305','Family',10000),
+('00008','306','Family',10000),
+('00008','307','Family',10000),
+('00009','101','Single',4000),
+('00009','102','Single',4000),
+('00009','103','Single',4000),
+('00009','104','Single',4000),
+('00009','105','Single',4000),
+('00009','201','Double',4500),
+('00009','202','Double',4500),
+('00009','203','Double',4500),
+('00009','204','Double',4500),
+('00009','205','Double',4500),
+('00009','206','Double',4500),
+('00010','101','Single',6500),
+('00010','102','Single',6500),
+('00010','103','Single',6500),
+('00010','104','Single',6500),
+('00010','105','Single',6500),
+('00010','201','Double',8500),
+('00010','202','Double',8500),
+('00010','203','Double',8500),
+('00010','204','Double',8500),
+('00010','205','Double',8500),
+('00011','201','Double',5000),
+('00011','202','Double',5000),
+('00011','203','Double',5000),
+('00011','204','Double',5000),
+('00011','205','Double',5000),
+('00011','206','Double',5000),
+('00011','207','Double',5000),
+('00011','208','Double',5000),
+('00011','301','Family',6500),
+('00011','302','Family',6500),
+('00011','303','Family',6500);
+/*!40000 ALTER TABLE `room` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-05-21 14:39:09
